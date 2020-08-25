@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import Home from './components/Hello.vue'
-import Doc from './components/Hello2.vue'
+import Home from './views/Home.vue'
+import Doc from './views/Doc.vue'
 import { createRouter, createWebHashHistory} from 'vue-router'
 
 const history = createWebHashHistory()
