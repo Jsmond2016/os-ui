@@ -80,8 +80,8 @@ yarn add vue-router@4.0.0-beta.3
   // 项目 src 目录下新建 shims-vue.d.ts
     declare module '*.vue' {
       import { ComponentOptions } from 'vue'
-      const ComponentOptions: ComponentOptions
-      export default ComponentOptions
+      const componentOptions: ComponentOptions
+      export default componentOptions
     }
   ```
 
