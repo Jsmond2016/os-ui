@@ -17,7 +17,7 @@ export default {
   setup(props, context) { // 第二个参数 context
     const toggle = () => {
       // props.value = !props.value 这里不能直接更改 props 的值
-      context.emit('input', !props.value)
+      context.emit('update:value', !props.value)
     }
     return {toggle}
   }
