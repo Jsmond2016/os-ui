@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="{checked: value}" @click="toggle">
+    <button class="my-switch" :class="{'my-checked': value}" @click="toggle">
       <span></span>
     </button>
     <div>{{value}}</div>
@@ -32,7 +32,7 @@
   $h: 22px;
   $h2: $h - 4px;
 
-  button {
+  .my-switch {
     width: $h*2;
     height: $h;
     border: none;
@@ -49,7 +49,7 @@
       border-radius: $h2 / 2;
       transition: all 250ms;
     }
-    &.checked {
+    &.my-checked {
       background: #1890ff;
       >span {
         left: calc(100% - #{$h2} - 2px);
@@ -61,7 +61,7 @@
         margin-left: -4px;
       }
     }
-    &.checked:active {
+    &.my-checked:active {
       >span {
         width: $h2 + 4px;
       }

@@ -1,6 +1,9 @@
 <template>
   <div>
-   <Button @click="handleClick" size="50" notShow="false">你好</Button>
+   <Button>你好</Button>
+   <Button theme="button">你好</Button>
+   <Button theme="link">你好</Button>
+   <Button theme="text">你好</Button>
   </div>
 </template>
 
@@ -12,10 +15,7 @@ export default {
     Button,
   },
   setup() {
-    const handleClick = () => {
-      console.log('hello')
-    }
-    return { handleClick }
+    
   }
 }
 </script>

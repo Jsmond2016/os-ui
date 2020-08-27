@@ -113,3 +113,76 @@ export default {
 - props 支持 string 以外的类型，attrs 只有 string 类型
 
 上面的几个特点，在上面的例子中都可以体现
+
+## 添加基础样式
+
+这里注意几个问题：
+
+- 去除 scoped ，因为 data-v-xxx 中的 xxx 每次运行可能不同，必须输出稳定不变的 class 选择器，方便使用者覆盖
+- 针对 firefox 浏览器可能出现的 outline 问题，使用下面代码处理
+
+```css
+&::-moz-focus-inner {
+      border: 0;
+    }
+```
+- 必须加前缀。
+  - `.button` 不行，很容易被使用者覆盖,
+  - `.jsmond-button` 可以，不太容易被覆盖, 
+  - `.theme-link` 不行，很容易被使用者覆盖,
+  - `.jsmond-theme-link` 可以，不太容易被覆盖
+
+
+基础样式全部代码为：
+
+```html
+<template>
+  <button class="jsmond-button" :class="{[`theme-${theme}`]: theme}">
+    <slot />
+  </button>
+</template>
+
+
+
+<style lang="scss">
+  $h: 32px;
+  $border-color: #d9d9d9;
+  $color: #333;
+  $blue: #40a9ff;
+  $radius: 4px;
+
+  .jsmond-button {
+    box-sizing: border-box;
+    height: $h;
+    padding: 0 12px;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    background: white;
+    color: $color;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    box-shadow: 0 1px 0 fade-out(black, 0.95);
+
+    &+& {
+      margin-left: 8px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $blue;
+      border-color: $blue;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+  }
+</style>
+```
