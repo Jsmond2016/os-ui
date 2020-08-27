@@ -18,7 +18,7 @@
     }
   }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   $h: 32px;
   $border-color: #d9d9d9;
   $color: #333;
