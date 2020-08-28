@@ -17,6 +17,21 @@
           <li>
             <router-link to="/doc/tabs">Tabs 组件</router-link>
           </li>
+          <li>
+            <router-link to="/doc/input">input 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/layout">layout 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/toast">toast 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/popover">popover 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/collapse">collapse 组件</router-link>
+          </li>
         </ol>
       </aside>
       <main>
