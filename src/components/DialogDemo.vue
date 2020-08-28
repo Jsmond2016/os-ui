@@ -8,7 +8,11 @@
       :closeOnClickOverlay="true"
       :confirm="onOk"
       :cancel="onCancel"
-    />
+      title="测试表单"
+    >
+      <p>你好测试，你好测试</p>
+      <p>你好测试，你好测试</p>
+    </Dialog>
   </div>
 </template>
 <script>
