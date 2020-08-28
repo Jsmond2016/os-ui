@@ -10,8 +10,13 @@
       :cancel="onCancel"
       title="测试表单"
     >
-      <p>你好测试，你好测试</p>
-      <p>你好测试，你好测试</p>
+      <template v-slot:content>
+        <p>你好测试，你好测试</p>
+        <p>你好测试，你好测试</p>
+      </template>
+      <template v-slot:title>
+        <strong>我是标题</strong>
+      </template>
     </Dialog>
   </div>
 </template>
