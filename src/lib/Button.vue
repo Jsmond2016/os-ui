@@ -8,7 +8,7 @@
 <script>
 import { computed } from "vue";
 export default {
-  inheritAttrs: false,
+  // inheritAttrs: false,
   props: {
     theme: {
       type: String,

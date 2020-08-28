@@ -49,7 +49,7 @@
   <h1>示例5</h1>
   <div>
     <Button loading>加载中</Button>
-    <Button>加载完毕</Button>
+    <Button @click="test">加载完毕</Button>
   </div>
 </template>
 
@@ -61,7 +61,10 @@ export default {
     Button,
   },
   setup() {
-    
+    const test = () => {
+      console.log('-----------')
+    }
+    return { test }
   }
 }
 </script>

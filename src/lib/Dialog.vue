@@ -1,17 +1,17 @@
 <template>
   <template v-if="visible">
     <div>
-      <div class="my-dialog-overlay"></div>
+      <div class="my-dialog-overlay" @click="onClickOverlay"></div>
       <div class="my-dialog-wrapper">
         <div class="my-dialog">
-          <header>标题 <span class="my-dialog-close"></span></header>
+          <header>标题 <span @click="close" class="my-dialog-close"></span></header>
           <main>
             <p>第一行</p>
             <p>第二行</p>
           </main>
           <footer>
-            <Button>OK</Button>
-            <Button>Cancel</Button>
+            <Button @click="confirm">OK</Button>
+            <Button @click="cancel">Cancel</Button>
           </footer>
         </div>
       </div>
@@ -27,11 +27,49 @@ export default {
     visible: {
       type: Boolean,
       default: false,
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true,
+    },
+    confirm: {
+      type: Function,
+    },
+    cancel: {
+      type: Function,
     }
   },
   components: {
     Button,
   },
+  setup(props, context) {
+    const close = ()=> {
+      context.emit("update:visible", false);
+    }
+    // 通过外面判断是否点击 背景色关闭 dialog
+    const onClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close()
+      }
+    }
+
+    const confirm = () => {
+      // 这里不应该用事件 的方式，否则关闭不好处理，因为事件没有返回值。场景：dialog 内有表单，没有填完不允许关闭
+      // const result = context.emit("confirm")
+      // if (result) close()
+      if (props.confirm?.() !== false) {
+        close()
+      }
+    }
+
+    const cancel = () => {
+      if (props.cancel?.() !== false) {
+        close()
+      }
+    }
+
+    return { close, onClickOverlay, confirm, cancel }
+  }
 };
 </script>
 
