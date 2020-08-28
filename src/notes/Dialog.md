@@ -439,9 +439,9 @@ export const openDialog = (options) => {
 解释下：
 
 - 原理就是： 创建一个 dom (包裹了 Dialog 组价的 dom)，挂在到 页面中
-- createApp:
-- render:
-- h: 接受的参数分别为 - 组件，props，slot 
+- createApp: 返回一个提供 context 的 Vue 实例
+- render: 返回一个 virtual node，
+- h: 接受的参数分别为 - 组件实例，props，slot 
 
 **关于 visible 问题:**
 
@@ -450,7 +450,8 @@ export const openDialog = (options) => {
 ## 参考资料
 
 - [Vue3-v-model](https://v3.vuejs.org/guide/migration/v-model.html#v-model-arguments)
+- [Vue3-v-slot](https://v3.vuejs.org/api/directives.html#v-slot)
 - [Vue3-Teleport](https://v3.vuejs.org/guide/teleport.html#teleport)
-- [Vue3-render]()
-- [Vue3-h]()
-- [Vue3-createApp]()
+- [Vue3-render](https://v3.vuejs.org/guide/render-function.html#render-functions)
+- [Vue3-h](https://v3.vuejs.org/guide/render-function.html#h-arguments)
+- [Vue3-createApp](https://v3.vuejs.org/api/global-api.html#createapp)

@@ -217,13 +217,15 @@ export default {
 
 - 父子传值，子组件 Button 通过 props 获取到传入的属性，需要在 Button 组件中添加 props 声明，否则该属性会再 context.attrs 中
 - computed 的使用，改变 css
-  ```js
-  import { computed } from "vue";
 
-  setup(props, context) {
-    const classes = computed(() => {})
-  }
-  ```
+```js
+import { computed } from "vue";
+
+setup(props, context) {
+  const classes = computed(() => {})
+}
+```
+
 - 对应的 css 书写
 
 ```scss
@@ -495,3 +497,7 @@ export default {
 }
 </style>
 ```
+
+## 参考资料：
+
+- [Vue3-inheritAttrs](https://v3.vuejs.org/api/options-misc.html#name)
