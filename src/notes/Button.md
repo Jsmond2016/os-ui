@@ -24,7 +24,7 @@
 比如，我们给 button 添加  click 事件
 
 ```html
-<--! 父元素 -->
+<!-- 父元素 -->
 <Button @click="handleClick">你好</Button>
 
  setup() {
@@ -34,7 +34,7 @@
     return { handleClick }
   }
 
-<--! 子元素 -->
+<!-- 子元素 -->
 
 <template>
   <div>
@@ -85,7 +85,7 @@
 - props 要先声明才能取值，attrs 不用先声明，如下，props 里只声明了 size，没有声明 notShow，因此无法获取到 notShow
 
 ```html
-<--! 父元素 -->
+<!-- 父元素 -->
 <Button @click="handleClick">你好</Button>
 
  setup() {
@@ -95,7 +95,7 @@
     return { handleClick }
   }
 
-<--! 子元素 -->
+<!-- 子元素 -->
 
 <template>
   <div>

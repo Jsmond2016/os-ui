@@ -124,8 +124,8 @@ $h: 22px;
 - 关于父子传值和事件传导：
 
 ```html
-<--! 写法1 -->
-<--! 父组件 -->
+<!-- 写法1 -->
+<!-- 父组件 -->
 <Switch v-model:value="bool" @change="bool = $event"/>
 
 setup() {
@@ -134,10 +134,10 @@ setup() {
   }
 
 
-<--! ----------分割线--------- -->
+<!-- ----------分割线--------- -->
 
 
-<--! 子组件 -->
+<!-- 子组件 -->
 <button :class="{checked: value}" @click="toggle">
   <span></span>
 </button>
@@ -153,9 +153,9 @@ setup(props, context) {
 }
 
 
-<--! 根据 Vue3 的新语法，可以写成这样 --- 写法2 -->
+<!-- 根据 Vue3 的新语法，可以写成这样 --- 写法2 -->
 
-<--! 父组件 -->
+<!-- 父组件 -->
 <Switch v-model:value="bool"/>
 
 setup() {
@@ -164,10 +164,10 @@ setup() {
   }
 
 
-<--! ----------分割线--------- -->
+<!-- ----------分割线--------- -->
 
 
-<--! 子组件 -->
+<!-- 子组件 -->
 <button :class="{checked: value}" @click="toggle">
   <span></span>
 </button>
