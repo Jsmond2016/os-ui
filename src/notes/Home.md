@@ -51,3 +51,10 @@ border-bottom-rihgt-radius: 50% 100px
 - [vue3 vite plugin](https://medium.com/better-programming/designing-vue3-plugins-using-provide-and-inject-47b586d9ce4)
 
 - 使用 [marked-github](https://github.com/markedjs/marked)
+
+
+代码多次优化，使用 【事不过三】原则
+
+
+当前代码缺点：使用异步加载的方式加载组件，可能需要等待时间。
+解决办法：使用 SSR，但是当前 Vite 没有相关 SSR 方案，因此无解，如果要支持，需要自己搭建一套SSR
