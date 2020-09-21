@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>{{Switch1Demo.__sourceCode}}</pre>
+        <pre class="language-html" v-html="hightLightCode(Switch1Demo.__sourceCode)"></pre>
       </div>
     </div>
     <div class="demo">
@@ -33,16 +33,26 @@ import Button from '../lib/Button.vue'
 import Switch1Demo from './Switch1Demo.vue'
 import Switch2Demo from './Switch2Demo.vue'
 import { ref } from 'vue'
+import 'prismjs'
+import 'prismjs/themes/prism-okaidia.css'
+
+const Prism = (window as any).Prism 
+
 export default {
   components: {
     Button
   },
   setup() {
     const bool = ref(true)
+    const hightLightCode = (code) => {
+      Prism.highlight(code, Prism.languages.html, 'html')
+    }
     return {
       bool,
       Switch1Demo,
-      Switch2Demo
+      Switch2Demo,
+      Prism,
+      hightLightCode
     }
   }
 }

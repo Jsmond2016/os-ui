@@ -55,6 +55,8 @@ border-bottom-rihgt-radius: 50% 100px
 
 代码多次优化，使用 【事不过三】原则
 
+遇到问题，路由不显示？ router 需要设置 key
+
 
 当前代码缺点：使用异步加载的方式加载组件，可能需要等待时间。
 解决办法：使用 SSR，但是当前 Vite 没有相关 SSR 方案，因此无解，如果要支持，需要自己搭建一套SSR
@@ -66,4 +68,12 @@ border-bottom-rihgt-radius: 50% 100px
 ## 展示源代码
 
 使用 [Vue-loader的Custom Blocks](https://github.com/vitejs/vite#custom-blocks) 功能
+
+
+## 高亮源代码
+
+[https://prismjs.com](https://prismjs.com/)
+
+安装： `yarn add prismjs`
+
 
