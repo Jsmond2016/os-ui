@@ -6,10 +6,13 @@
       </svg>
     </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <svg class="icon toggleAside" aria-hidden="true" @click="toggleMenu">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
   </div>
 </template>
 <script lang="ts">
@@ -19,6 +22,12 @@
   } from 'vue'
 
   export default {
+    props: {
+      toggleMenuButtonVisible: {
+        type: Boolean,
+        default: false
+      }
+    },
     setup() {
       const menuVisible = inject<Ref<boolean>>("menuVisible"); // 获取到 menuVisible
       const toggleMenu = () => {
@@ -32,7 +41,6 @@
 $color: rgb(22 144 138);
 
   .topnav {
-    // background: pink;
     display: flex;
     padding: 16px;
     position: fixed;
@@ -63,14 +71,14 @@ $color: rgb(22 144 138);
     }
 
     >.toggleAside {
-      width: 24px;
-      height: 24px;
-      background: red;
+      width: 36px;
+      height: 36px;
       position: absolute;
       left: 16px;
       top: 50%;
       transform: translateY(-50%);
       display: none;
+      cursor: pointer;
     }
 
     @media (max-width: 500px) {
