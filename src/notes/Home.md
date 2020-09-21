@@ -39,3 +39,15 @@ border-bottom-rihgt-radius: 50% 100px
  使用 markdown 样式：
 
  [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
+
+ 开发 Vite 插件，支持 markdown 文件解析
+
+- [vite 官网](https://github.com/vitejs/vite)
+
+- [vite config 配置](https://github.com/vitejs/vite#config-file)
+
+- [vite config 源代码](https://github.com/vitejs/vite/blob/master/src/node/config.ts)
+
+- [vue3 vite plugin](https://medium.com/better-programming/designing-vue3-plugins-using-provide-and-inject-47b586d9ce4)
+
+- 使用 [marked-github](https://github.com/markedjs/marked)
