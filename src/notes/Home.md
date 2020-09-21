@@ -77,3 +77,8 @@ border-bottom-rihgt-radius: 50% 100px
 安装： `yarn add prismjs`
 
 
+## 封装 Demo 组件
+
+将 样式，高亮代码等逻辑，封装在 Demo 组件中
+
+
