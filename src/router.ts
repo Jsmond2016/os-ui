@@ -12,6 +12,8 @@ import GetStart from "./views/GetStart.vue";
 import Install from "./views/Install.vue";
 import { h } from 'vue';
 
+const md = (filename) => h(Markdown, {path: `../markdown/${filename}.md`, key: filename})
+
 const history = createWebHashHistory();
 export const router = createRouter({
   history: history,
@@ -22,9 +24,9 @@ export const router = createRouter({
       component: Doc,
       children: [
         { path: "", component: DocDemo },
-        { path: "intro", component: h(Markdown, {path: '../markdown/intro.md', key: '1'}) },
-        { path: "get-started", component: h(Markdown, {path: '../markdown/get-started.md', key: '2'}) },
-        { path: "install", component: h(Markdown, {path: '../markdown/install.md', key: '3'}) },
+        { path: "intro", component: md('intro')},
+        { path: "get-started", component: md('get-started')},
+        { path: "install", component: md('install')},
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },
