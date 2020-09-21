@@ -38,6 +38,7 @@ $color: rgb(22 144 138);
 .topnavAndBanner {
   background: rgb(184,241,237);
   background: linear-gradient(90deg, rgba(184,241,237,1) 0%, rgba(125,216,235,1) 100%, rgba(183,233,230,1) 100%);
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
 .banner {
   padding: 100px 0;
