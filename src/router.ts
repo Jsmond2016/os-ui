@@ -21,7 +21,7 @@ export const router = createRouter({
       children: [
         { path: "", component: DocDemo },
         { path: "intro", component: Intro },
-        { path: "get-start", component: GetStart },
+        { path: "get-started", component: GetStart },
         { path: "install", component: Install },
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
