@@ -49,10 +49,16 @@
           </li> -->
         </ol>
       </aside>
-      <main>
+      <main @click="closeMenu">
         <router-view />
       </main>
-      <footer><a href="#top">回顶部</a></footer>
+      <footer>
+        <a href="javascript:scrollTo(0,0);" target="_self">
+          <svg class="icon back-to-top">
+              <use xlink:href="#icon-to-top"></use>
+          </svg>
+        </a>
+      </footer>
     </div>
   </div>
 </template>
@@ -69,8 +75,12 @@
     },
     setup() {
       const menuVisible = inject < Ref < boolean >> ('menuVisible') // 获取到 menuVisible
+      const closeMenu = () => {
+        menuVisible.value = false;
+      }
       return {
-        menuVisible
+        menuVisible,
+        closeMenu
       }
     }
   }
@@ -112,9 +122,24 @@ $aside-index: 10;
       background: white;
     }
     >footer {
-      position: fixed;
-      bottom: 0;
-      right: 20px;
+      >a {
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        svg.back-to-top {
+          width: 36px;
+          height: 36px;
+          fill: #02bcb0;
+        }
+        @media (max-width: 500px) {
+            bottom: 30px;
+            right: 26px;
+            svg.back-to-top {
+              width: 30px;
+              height: 30px;
+            }
+        }
+      }
     }
   }
 

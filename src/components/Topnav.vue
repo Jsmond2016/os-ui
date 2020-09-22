@@ -86,7 +86,8 @@ $color: rgb(22 144 138);
         display: none;
       }
       > .logo {
-        margin: 0 auto;
+        // margin: 0 auto;
+        display: none;
       }
       > .toggleAside {
         display: inline-block;
