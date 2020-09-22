@@ -8,8 +8,8 @@
 
 <script lang='ts'>
 import Button from '../lib/Button.vue'
-import Switch1Demo from './Switch1Demo.vue'
-import Switch2Demo from './Switch2Demo.vue'
+import Switch1Demo from '../demos/Switch1Demo.vue'
+import Switch2Demo from '../demos/Switch2Demo.vue'
 import Demo from './Demo.vue'
 
 export default {

@@ -17,8 +17,6 @@
 
 <script lang='ts'>
 import Button from '../lib/Button.vue'
-import Switch1Demo from './Switch1Demo.vue'
-import Switch2Demo from './Switch2Demo.vue'
 import { computed, ref } from 'vue'
 import 'prismjs'
 import 'prismjs/themes/prism-okaidia.css'
@@ -43,8 +41,6 @@ export default {
     })
     return {
       bool,
-      Switch1Demo,
-      Switch2Demo,
       Prism,
       html,
       codeVisible,
