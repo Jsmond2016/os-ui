@@ -9,7 +9,7 @@
         <Button @click="toggleCode">查看代码</Button>
       </div>
       <div class="demo-code" v-if="codeVisible">
-        <pre v-html="html"></pre>
+        <pre class="language-html" v-html="html"></pre>
       </div>
     </div>
   </div>

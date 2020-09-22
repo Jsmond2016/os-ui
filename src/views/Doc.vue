@@ -29,7 +29,7 @@
           <li>
             <router-link to="/doc/tabs">Tabs 组件</router-link>
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/doc/icon">Icon 组件</router-link>
           </li>
           <li>
@@ -46,7 +46,7 @@
           </li>
           <li>
             <router-link to="/doc/collapse">collapse 组件</router-link>
-          </li>
+          </li> -->
         </ol>
       </aside>
       <main>
