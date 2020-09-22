@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout" name="top">
     <Topnav class="nav" toggleMenuButtonVisible />
     <div class="content">
       <aside v-if="menuVisible">
@@ -9,10 +9,10 @@
             <router-link to="/doc/intro">介绍</router-link>
           </li>
           <li>
-            <router-link to="/doc/get-started">开始</router-link>
+            <router-link to="/doc/install">安装</router-link>
           </li>
           <li>
-            <router-link to="/doc/install">安装</router-link>
+            <router-link to="/doc/get-started">开始</router-link>
           </li>
         </ol>
         <h2>组件列表</h2>
@@ -52,6 +52,7 @@
       <main>
         <router-view />
       </main>
+      <footer><a href="#top">回顶部</a></footer>
     </div>
   </div>
 </template>
@@ -75,6 +76,9 @@
   }
 </script>
 <style lang="scss">
+
+$aside-index: 10;
+
   .layout {
     display: flex;
     flex-direction: column;
@@ -107,6 +111,11 @@
       padding: 16px;
       background: white;
     }
+    >footer {
+      position: fixed;
+      bottom: 0;
+      right: 20px;
+    }
   }
 
   aside {
@@ -118,7 +127,7 @@
     left: 0;
     padding-top: 70px;
     height: 100%;
-
+    z-index: $aside-index;
     >h2 {
       margin-bottom: 4px;
       padding: 0 16px;
