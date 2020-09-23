@@ -75,8 +75,12 @@
     },
     setup() {
       const menuVisible = inject < Ref < boolean >> ('menuVisible') // 获取到 menuVisible
+      const width = document.documentElement.clientWidth;
       const closeMenu = () => {
-        menuVisible.value = false;
+        if (width < 500) {
+          menuVisible.value = false;
+        }
+        console.log('close-menu')
       }
       return {
         menuVisible,
