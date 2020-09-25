@@ -6,7 +6,7 @@
       <h1>Osmond-UI</h1>
       <h2>一个好用的 UI 框架</h2>
       <p class="actions">
-        <a href="">Github</a> &nbsp;
+        <a href="https://github.com/Jsmond2016/vue3-demo">Github</a> &nbsp;
         <router-link to="/doc/intro">开始</router-link>
       </p>
     </div>
