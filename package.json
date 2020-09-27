@@ -1,8 +1,8 @@
 {
   "name": "os-ui",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "files": ["dist/lib/*"],
-  "main": "dist/lib/my.js",
+  "main": "dist/lib/os-ui.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

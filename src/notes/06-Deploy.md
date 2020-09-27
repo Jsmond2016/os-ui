@@ -70,8 +70,9 @@ rollup -c
 - 更改 `package.json` ，新增配置
 
 ```json
+"name": "os-ui",
 "files": ["dist/lib/*"],
-"main": "dist/lib/my.js",
+"main": "dist/lib/os-ui.js",
 ```
 
 换成 npm 源
@@ -91,6 +92,9 @@ npm login
 npm publish
 
 ```
+
+每次需要改动 os-ui 的时候，都需要删除 dist 目录，重新执行 `rollup -c` ，更改 `package.json` 的版本号升级后再执行 `npm publish` 进行发布，使用的时候也需要更改版本号重新安装
+
 
 ## 测试发现 bug
 
