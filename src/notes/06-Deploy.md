@@ -92,7 +92,139 @@ npm publish
 
 ```
 
+## 测试发现 bug
 
+测试方式：
+
+使用 vue-cli 新建一个项目，添加我们的 `my-ui` ，测试每个组件是否正常使用
+
+发现问题：
+
+Tabs 切换失效
+
+
+问题排查方式：
+
+- 回到组件测试中，测试是否有问题
+- build 后组件是否有问题
+- 正式项目和my-ui 的项目依赖？ 是的，项目使用的是 rc 版本，猜测可能是正式版和 rc 版本发生了变更
+- 那么，是哪个地方发生了变更导致我们的项目出问题呢？
+- 我们查看 Tab 组建中使用了哪些 新的 API，新的就是可能发生变更的
+- 初步判断是 `watchEffect` 可能发生了变更
+- 我们来到 [vue-next](https://github.com/vuejs/vue-next/) ，找到 release ，搜索 `watchEffect`
+- 没有相关搜索结果，我们猜测，可能是 rc 版本中的某个版本变更了，我们找到其中一个 [CHAGNELOG.md](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md)，搜索发现这里有变更
+
+> BREAKING CHANGES
+>
+>watch APIs now default to use flush: 'pre' instead of flush: 'post'. This change affects watch, watchEffect, the watch component option, and this.$watch. See (49bb447) for more details.
+
+解释为：新增 `flush` 参数，使用 `pre` 属性 替代了默认 `post`，这里影响了 `watch, watchEffect` API
+
+回到 `watchEffect` 的作用，就是监听函数内变量的变化，如果有变化，则重新执行函数。
+
+此时，我们需要分析 代码之间的逻辑：
+
+```html
+<template>
+  <div class="my-tabs">
+    <div class="my-tabs-nav" ref="container">
+      <div class="my-tabs-nav-item" :ref="el => { if (t===selected) selectedItem = el }" @click="select(t)" :class="{selected: t === selected}" v-for="(t,index) in titles" :key="index">{{t}}</div>
+      <div class="my-tabs-nav-indicator" ref="indicator"></div>
+    </div>
+    <div class="my-tabs-content">
+      <component :is="current" :key="current.props.title" />
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default {
+  props: {
+    selected: {
+      type: String,
+    }
+  },
+  setup() {
+    // ...省略部分代码
+    onMounted(() => {
+    watchEffect(() => {
+      const {
+        width
+      } = selectedItem.value.getBoundingClientRect()
+      indicator.value.style.width = width + 'px'
+      const {
+        left: left1
+      } = container.value.getBoundingClientRect()
+      const {
+        left: left2
+      } = selectedItem.value.getBoundingClientRect()
+      const left = left2 - left1
+      indicator.value.style.left = left + 'px'
+    })
+  })
+  }
+}
+
+</script>
+
+```
+
+分析为：
+
+
+```bash
+我们原本期待的代码逻辑顺序为
+
+01--props: seleted 变化
+
+导致
+
+02--ref: selectedItem 变化
+
+从而
+
+03--watchEffect: 内部使用到的变量改变，则执行代码，从而 Indicator 位置改变
+```
+
+这就是 vue3 中 `watchEffect` 原本的 `post` 的效果。现在变成了 `pre`，带来的变化在于，执行顺序变成了 `1--3--2`，那么，这种执行顺序，是以什么为依据呢？
+
+这里涉及到关键因素：页面渲染
+
+`selected` 参数是放在 `template` 视图中的，当点击 tab， `selected` 发生了变化，页面渲染，视图开始更新。即只有在渲染的时候，才知道 视图中 参数 `selectedItem` 发生了变化。
+
+`post` 的表现在于，视图渲染后，即 执行完 `1--2` 后，再执行 `3` ；
+
+`pre` 的表现在于，视图渲染前，执行顺序为 `1--3---2`，这样导致的问题是，`2` 中的变量变化，会少执行一次，即只有在下一次 变化后，视图渲染才会触发 `2` 的条件更新，从而触发 `3` 的更新，而第一次更新时，因为 `3` 先执行，所以无法感知后面的动作 `2` 的变化，从而导致的 bug
+
+验证方式：
+
+在 `watchEffect` 中打一个 log，可以发现，第一次点击的时候，没有触发 `watchEffect` 的函数 
+
+
+修复办法：
+
+- 将所有 vue 版本换成正式版本
+- 更改所有使用了 `watch, watchEffect`的地方，新增 `flush` 参数，改成 `post` 
+
+```js
+onMounted(() => {
+    watchEffect(() => {
+      const {
+        width
+      } = selectedItem.value.getBoundingClientRect()
+      indicator.value.style.width = width + 'px'
+      const {
+        left: left1
+      } = container.value.getBoundingClientRect()
+      const {
+        left: left2
+      } = selectedItem.value.getBoundingClientRect()
+      const left = left2 - left1
+      indicator.value.style.left = left + 'px'
+    }, {flush: 'post'})
+  })
+```
 
 ## yarn build
 
