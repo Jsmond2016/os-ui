@@ -1,6 +1,8 @@
 {
-  "name": "vue3-demo",
+  "name": "os-ui",
   "version": "0.0.0",
+  "files": ["dist/lib/*"],
+  "main": "dist/lib/my.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

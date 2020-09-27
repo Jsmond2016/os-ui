@@ -12,8 +12,8 @@ export default {
     globals: {
       vue: 'Vue'
     },
-    name: 'Gulu',
-    file: 'dist/lib/my-ui.js',
+    name: 'os-ui',
+    file: 'dist/lib/os-ui.js',
     format: 'umd',
     plugins: [terser()]
   },

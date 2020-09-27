@@ -65,6 +65,33 @@ yarn install
 rollup -c
 ```
 
+## npm 发布
+
+- 更改 `package.json` ，新增配置
+
+```json
+"files": ["dist/lib/*"],
+"main": "dist/lib/my.js",
+```
+
+换成 npm 源
+
+```bash
+# 判断当前源，若为淘宝源则换成  npm 源
+npm config get registry
+
+npm config set registry https://registry.npmjs.org
+
+# 输入注册号的 npm 账号
+npm login
+
+# 发布的包取名，必须小写，不能重名
+# 发布前，请在 npmjs 官网输入你发布的名字，确定没有被别人使用
+# 每次发布版本，不能和上一次相同，需要先修改 package.json 的 version 
+npm publish
+
+```
+
 
 
 ## yarn build
