@@ -16,6 +16,10 @@ OS UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 # 新建一个 vue3 项目
 npm i -g vue/cli
 
+vue create vue-app
+
+cd vue-app
+
 # 添加依赖
 npm i os-ui
 
