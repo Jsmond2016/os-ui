@@ -2,7 +2,7 @@
 
 - 官方预览：[os-ui](https://jsmond.gitee.io/my-ui/index.html#/)
 
-- 代码库：[vue3-demo](https://github.com/Jsmond2016/os-ui)
+- 代码库：[os-ui](https://github.com/Jsmond2016/os-ui)
 
 OS UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 
