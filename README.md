@@ -1,6 +1,6 @@
 # OS-UI
 
-- 官方预览：[os-ui](https://jsmond.gitee.io/my-ui/index.html#/)
+- 官方预览：[os-ui](https://jsmond.gitee.io/os-ui/index.html#/)
 
 - 代码库：[os-ui](https://github.com/Jsmond2016/os-ui)
 
