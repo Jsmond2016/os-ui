@@ -14,10 +14,18 @@
   export default {
     name: 'Switch',
     props: {
-      value: Boolean
+      value: {
+        type:Boolean,
+        default: false
+      },
+      disabled: {
+        type: Boolean,
+        default: false
+      }
     },
     setup(props, context) { // 第二个参数 context
       const toggle = () => {
+        if (props.disabled) return
         // props.value = !props.value 这里不能直接更改 props 的值
         context.emit('update:value', !props.value)
       }
@@ -58,7 +66,7 @@
     &:active {
       >span {
         width: $h2 + 4px;
-        margin-left: -4px;
+        margin-left: -2px;
       }
     }
     &.my-checked:active {

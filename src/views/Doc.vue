@@ -168,10 +168,12 @@ $aside-index: 10;
           display: block;
           text-decoration: none;
           padding: 4px 16px;
+          &:hover{
+          text-decoration: none;
+        }
         }
         .router-link-active {
           background: white;
-          text-decoration: underline;
         }
       }
     }
