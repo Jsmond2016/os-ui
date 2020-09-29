@@ -19,6 +19,10 @@
     <h2>示例5</h2>
     <Demo :component="Button5Demo" />
   </div>
+  <footer-nav
+    :lastPage="{route: '/doc/switch', content: 'Switch组件'}"
+    :nextPage="{route: '/doc/dialog', content: 'Dialog组件'}"
+  >
 </template>
 
 <script>
@@ -29,11 +33,13 @@ import Button2Demo from '../demos/Button2Demo.vue'
 import Button3Demo from '../demos/Button3Demo.vue'
 import Button4Demo from '../demos/Button4Demo.vue'
 import Button5Demo from '../demos/Button5Demo.vue'
+import FooterNav from './FooterNav.vue'
 
 export default {
   components: {
     Button,
     Demo,
+    FooterNav
   },
   setup() {
     return {
