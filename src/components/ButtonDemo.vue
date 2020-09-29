@@ -23,6 +23,7 @@
     :lastPage="{route: '/doc/switch', content: 'Switch组件'}"
     :nextPage="{route: '/doc/dialog', content: 'Dialog组件'}"
   >
+  </footer-nav>
 </template>
 
 <script>
