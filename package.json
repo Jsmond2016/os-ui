@@ -1,16 +1,16 @@
 {
   "name": "os-ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "files": ["dist/lib/*"],
   "main": "dist/lib/os-ui.js",
-  "homepage": "https://jsmond.gitee.io/my-ui/index.html",
+  "homepage": "https://jsmond.gitee.io/os-ui/index.html",
   "description": "An ui lib with Vue3.0 and Tyepscript",
   "author": {
     "name": "Jsmond2016"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jsmond2016/vue3-demo"
+    "url": "https://github.com/Jsmond2016/os-ui"
   },
   "license": "MIT",
   "scripts": {
